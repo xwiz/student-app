@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@home');
+Route::get('profiles', 'StudentsController@profiles');
+Route::get('search', 'StudentsController@search');
+Route::get('profile/{user}', 'StudentsController@viewProfile');
+
+Route::get('register', 'Auth\RegisterController@viewRegister');
+Route::post('register', 'Auth\RegisterController@storeRegister');
+
+Route::get('login', 'Auth\LoginController@login');
+Route::post('login', 'Auth\LoginController@authenticate');
+
+Route::model('user', 'App\User');
