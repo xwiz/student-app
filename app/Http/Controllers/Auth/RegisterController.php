@@ -16,7 +16,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -28,17 +28,6 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data, $rules)
-    {
-        return Validator::make($data, $rules);
-    }
-
     public function viewRegister()
     {
         return view('register');
@@ -48,6 +37,13 @@ class RegisterController extends Controller
     {
         $data = $request->all();
         $user = new User();
+        $validator = $this->validator($data, $user->rules);
+        if(!$validator->passes())
+        {
+            $request->flash();
+            return view('register')->withErrors($validator);
+        }
+
         $user->fill($data);
 
         if($request->hasFile('picture'))

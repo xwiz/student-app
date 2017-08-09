@@ -27,11 +27,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected $rules = [
+    public $rules = [
             'first_name' => 'required|string|min:3|max:50',
             'last_name' => 'required|string|min:3|max:50',
             'email' => 'required|string|email|max:50|unique:users',
-            'age' => 'number|min:10',
+            'age' => 'numeric|min:10|max:50',
+            'picture' => 'required',
+            'phone_number' => 'numeric|digits:11',
             'password' => 'required|string|min:6|confirmed',
         ];
 

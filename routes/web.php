@@ -20,6 +20,7 @@ Route::get('register', 'Auth\RegisterController@viewRegister');
 Route::post('register', 'Auth\RegisterController@storeRegister');
 
 Route::get('login', 'Auth\LoginController@login');
+Route::get('logout', 'Auth\LoginController@logout');
 Route::post('login', 'Auth\LoginController@authenticate');
 
 Route::model('user', 'App\User');

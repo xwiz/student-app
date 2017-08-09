@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -17,7 +18,7 @@ class LoginController extends Controller
     public function authenticate(Request $request)
     {
         $email = $request->get('email');
-        if(\Auth::attempt([
+        if(Auth::attempt([
             'email' => $email,
             'password' => $request->get('password')
             ]))

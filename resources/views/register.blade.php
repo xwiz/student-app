@@ -9,7 +9,7 @@
             Enter your details to register below.
         </p>
         @if(isset($errors))
-        @foreach($errors as $error)
+        @foreach($errors->all() as $error)
         <div class="alert alert-danger">
           {{ $error }}
         </div>
@@ -23,55 +23,55 @@
                 <label for="firstname">
                     First name
                 </label>
-                <input name="first_name" type="text" class="form-control" id="firstname" />
+                <input value='{{ old("first_name") }}' name="first_name" type="text" class="form-control" id="firstname" />
             </div>
             <div class="form-group">
                 <label for="lastname">
                     Last name
                 </label>
-                <input name="last_name" type="text" class="form-control" id="lastname" />
+                <input value='{{ old("last_name") }}' name="last_name" type="text" class="form-control" id="lastname" />
             </div>
             <div class="form-group">                 
                 <label for="exampleInputEmail1">
                     Email address
                 </label>
-                <input name="email" type="email" class="form-control" id="exampleInputEmail1" />
+                <input value='{{ old("email") }}' name="email" type="email" class="form-control" id="exampleInputEmail1" />
             </div>
             <div class="form-group">                 
                 <label for="address">
                     Address
                 </label>
-                <input name="address" type="text" class="form-control" id="address" />
+                <input value='{{ old("address") }}' name="address" type="text" class="form-control" id="address" />
             </div>
             <div class="form-group">                 
                 <label for="phone">
                     Phone Number
                 </label>
-                <input name="phone_number" maxlength="11" type="text" class="form-control" id="phone" />
+                <input value='{{ old("phone_number") }}' name="phone_number" maxlength="11" type="text" class="form-control" id="phone" />
             </div>
             <div class="form-group">                 
                 <label for="age">
                     Age
                 </label>
-                <input name="age" type="number" class="form-control" id="age" />
+                <input value='{{ old("age") }}' name="age" type="number" class="form-control" id="age" />
             </div>
             <div class="form-group">                 
                 <label for="bio">
                     Bio
                 </label>
-                <textarea name="bio" class="form-control" rows="3"></textarea>
+                <textarea name="bio" class="form-control" rows="3">{{ old('bio') }}</textarea>
             </div>
             <div class="form-group">
                 <label for="password">
                     Password
                 </label>
-                <input name="password" type="password" class="form-control" id="password" />
+                <input value='{{ old("password") }}' name="password" type="password" class="form-control" id="password" />
             </div>
             <div class="form-group">
                 <label for="password_confirmation">
                     Confirm Password
                 </label>
-                <input name="password_confirmation" type="password" class="form-control" id="password_confirmation" />
+                <input value='{{ old("password_confirmation") }}' name="password_confirmation" type="password" class="form-control" id="password_confirmation" />
             </div>
             <div class="form-group">
                  
