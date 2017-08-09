@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Request;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -15,12 +16,14 @@ class LoginController extends Controller
 
     public function authenticate(Request $request)
     {
-        if(Auth::attempt([
-            'email' => $request->get('email'),
+        $email = $request->get('email');
+        if(\Auth::attempt([
+            'email' => $email,
             'password' => $request->get('password')
             ]))
         {
-            return 'You are logged in boolah.';
+            $user = User::where('email', $email)->first();
+            return redirect('profile/'.$user->id);
         }
         else
         {

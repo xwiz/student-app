@@ -1,12 +1,13 @@
 @extends('template')
-@section('title', 'Register | Student Portal')
+@section('title', 'View Profile | Student Portal')
 
 @section('content')
 <div class="row">
+<div class="col-md-12">
         <h2>Student Profile</h2>
-
+</div>
 <div class="col-sm-6 col-md-4">
-    <img src="{{ url('images/'.$picture_url) }}" alt="" class="img-rounded img-responsive" />
+    <img src="{{ url($picture_url) }}" alt="" class="img-rounded img-responsive" />
 </div>
 <div class="col-sm-6 col-md-8">
     <h4>{{ $first_name }}'s Profile</h4>
@@ -20,4 +21,5 @@
     <!-- Split button -->
 </div>
 </div>
+
 @endsection

@@ -1,20 +1,19 @@
 <?php
 
-use App\User;
-
-use Illuminate\Http\Request;
-
 namespace App\Http\Controllers;
+
+use App\User;
+use Illuminate\Http\Request;
 
 class StudentsController extends Controller
 {
 
     public function profiles()
     {
-        return view('profiles')->withUsers(User::all());
+        return view('profiles')->withStudents(User::all());
     }
 
-    public function viewProfile(Request $request, User $u)
+    public function viewProfile(User $u)
     {
     	return view('profile')->with($u->toArray());
     }

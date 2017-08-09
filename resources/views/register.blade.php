@@ -27,7 +27,7 @@
             </div>
             <div class="form-group">
                 <label for="lastname">
-                    First name
+                    Last name
                 </label>
                 <input name="last_name" type="text" class="form-control" id="lastname" />
             </div>

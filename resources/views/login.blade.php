@@ -4,6 +4,7 @@
 @section('content')
 		<div class="col-md-offset-3 col-md-6 col-xs-12">
 			<form method="post" action="{{ url('login') }}" class="form-horizontal" role="form">
+			{{ csrf_field() }}
 				<div class="form-group">
 					 <h2>Please login to continue</h2>
 					 @if(isset($error))
@@ -32,7 +33,7 @@
 						<div class="checkbox">
 							 
 							<label>
-								<input type="checkbox" /> Remember me
+								<input name="remember" type="checkbox" /> Remember me
 							</label>
 						</div>
 					</div>

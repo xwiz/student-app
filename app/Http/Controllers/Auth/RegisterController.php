@@ -53,16 +53,16 @@ class RegisterController extends Controller
         if($request->hasFile('picture'))
         {
             $picture = $request->file('picture');
-            $pname = time().'jpg';
-            \Storage::disk('public')->put($pname, $picture);
+            $pname = \Storage::disk('public')->put("images", $picture);
             $user->picture_url = $pname;
         }
         else
         {
             $user->picture_url = "";
         }
+        $user->password = bcrypt($user->password);
         $user->save();
 
-        return view('profile')->with($data);
+        return redirect('profile/'.$user->id);
     }
 }

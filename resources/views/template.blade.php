@@ -9,14 +9,14 @@
     <title>@yield('title', 'Student Portal')</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url('css/bootstrap.min.css') }}" rel="stylesheet">
 
   </head>
   <body>
 
   <div class="container-fluid">
   	@include('template_header')
-  	
+
   	@yield('content')
   </div>
 
