@@ -23,7 +23,7 @@ class StudentsController extends Controller
     	$keyword = $request->get('keyword');
     	$results = User::where('first_name', 'LIKE', $keyword)
     	->orWhere('last_name', 'LIKE', $keyword)->get();
-    	return view('search_results')->withResults($results);
+    	return view('search_results')->withStudents($results);
     }
 
 }
